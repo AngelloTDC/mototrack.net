@@ -13,11 +13,24 @@ public class MLService
     public MLService()
     {
         _mlContext = new MLContext(seed: 0);
-        TreinarModelo();
+
+        if (File.Exists(_modelPath))
+        {
+            Console.WriteLine("📦 Carregando modelo existente...");
+            using var fileStream = new FileStream(_modelPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            _model = _mlContext.Model.Load(fileStream, out _);
+            Console.WriteLine("✅ Modelo carregado com sucesso!");
+        }
+        else
+        {
+            TreinarModelo();
+        }
     }
 
     private void TreinarModelo()
     {
+        Console.WriteLine("⚙️ Iniciando treinamento do modelo ML.NET...");
+
         var dadosTreinamento = new List<DadosManutencao>
         {
             new() { Quilometragem = 1000, NivelBateria = 100, DiasDesdeUltimaManutencao = 30, RequerManutencao = false },
@@ -34,27 +47,27 @@ public class MLService
 
         var dadosView = _mlContext.Data.LoadFromEnumerable(dadosTreinamento);
 
-        var pipeline = _mlContext.Transforms.Concatenate("Features", 
-                nameof(DadosManutencao.Quilometragem), 
-                nameof(DadosManutencao.NivelBateria), 
+        var pipeline = _mlContext.Transforms.Concatenate("Features",
+                nameof(DadosManutencao.Quilometragem),
+                nameof(DadosManutencao.NivelBateria),
                 nameof(DadosManutencao.DiasDesdeUltimaManutencao))
             .Append(_mlContext.BinaryClassification.Trainers.FastTree(
-                labelColumnName: nameof(DadosManutencao.RequerManutencao),
+                labelColumnName: "Label",
                 numberOfLeaves: 20,
                 numberOfTrees: 100,
                 minimumExampleCountPerLeaf: 1));
 
         _model = pipeline.Fit(dadosView);
 
-        Console.WriteLine("✅ Modelo ML.NET treinado com sucesso!");
+        _mlContext.Model.Save(_model, dadosView.Schema, _modelPath);
+
+        Console.WriteLine("✅ Modelo ML.NET treinado e salvo com sucesso!");
     }
 
     public PredicaoManutencaoResponse PreverManutencao(PredicaoManutencaoRequest request)
     {
         if (_model == null)
-        {
             throw new InvalidOperationException("Modelo não foi treinado.");
-        }
 
         var dadosEntrada = new DadosManutencao
         {
@@ -83,13 +96,10 @@ public class MLService
     {
         if (diasDesdeUltima >= 180 || quilometragem >= 10000)
             return 0;
-
         if (diasDesdeUltima >= 120 || quilometragem >= 7000)
             return 7;
-
         if (diasDesdeUltima >= 90 || quilometragem >= 5000)
             return 30;
-
         return 60;
     }
 
@@ -123,11 +133,11 @@ public class MLService
 
         var testDataView = _mlContext.Data.LoadFromEnumerable(dadosTeste);
         var predictions = _model.Transform(testDataView);
-        var metrics = _mlContext.BinaryClassification.Evaluate(predictions, 
-            labelColumnName: nameof(DadosManutencao.RequerManutencao));
+        var metrics = _mlContext.BinaryClassification.Evaluate(predictions, labelColumnName: "Label");
 
-        Console.WriteLine($"📊 Acurácia do Modelo: {metrics.Accuracy:P2}");
-        Console.WriteLine($"📊 AUC: {metrics.AreaUnderRocCurve:F3}");
+        Console.WriteLine($"📊 Acurácia: {metrics.Accuracy:P2}");
+        Console.WriteLine($"📈 AUC: {metrics.AreaUnderRocCurve:F3}");
+        Console.WriteLine($"📉 F1 Score: {metrics.F1Score:F3}");
     }
 }
 

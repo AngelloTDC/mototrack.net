@@ -28,7 +28,7 @@ Extraia o arquivo `MotoTrackAPI-Corrigido.zip` em uma pasta de sua preferência.
 dotnet restore
 ```
 
-### Passo 4: Acessar a API
+### Passo 4: Acessar a pasta do projeto
 
 ```bash
 cd MotoTrackAPI

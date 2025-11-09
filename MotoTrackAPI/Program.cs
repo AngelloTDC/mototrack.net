@@ -42,7 +42,7 @@ builder.Services.AddApiVersioning(options =>
 
 Console.WriteLine("✅ Versionamento da API configurado (v1.0)");
 
-var jwtSecretKey = builder.Configuration["JwtSettings:SecretKey"] 
+var jwtSecretKey = builder.Configuration["JwtSettings:SecretKey"]
     ?? "ChaveSecretaSuperSeguraComMaisDe32Caracteres123!@#";
 
 builder.Services.AddAuthentication(options =>
@@ -76,7 +76,7 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<AppDbContext>(
         name: "database",
         tags: new[] { "db", "database" })
-    .AddCheck("api-health", () => 
+    .AddCheck("api-health", () =>
         Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Healthy(
             "API está funcionando corretamente"));
 
@@ -111,7 +111,7 @@ builder.Services.AddSwaggerGen(c =>
    ```json
    {
      ""username"": ""admin"",
-     ""password"": ""admin123""
+     ""senha"": ""admin123""
    }
    ```
 
@@ -119,7 +119,7 @@ builder.Services.AddSwaggerGen(c =>
 
 3. Clique em **Authorize** 🔓 (canto superior direito)
 
-4. Digite: `Bearer {seu-token-aqui}`
+4. Digite: `Bearer {token-vem-aqui}`
 
 5. Clique em **Authorize** novamente
 
@@ -136,8 +136,8 @@ A API permite registrar e consultar localizações das motos no depósito usando
 
 ## 👥 Usuários de Teste
 
-- **Admin**: `admin` / `admin123`
 - **Operador**: `operador` / `operador123`
+- **Admin**: `admin` / `admin123`
 
 ## 👨‍💻 Integrantes do Projeto
 
@@ -147,13 +147,7 @@ A API permite registrar e consultar localizações das motos no depósito usando
         Contact = new OpenApiContact
         {
             Name = "FIAP - Análise e Desenvolvimento de Sistemas",
-            Email = "contato@mototrack.com"
         },
-        License = new OpenApiLicense
-        {
-            Name = "MIT License",
-            Url = new Uri("https://opensource.org/licenses/MIT")
-        }
     });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -226,7 +220,7 @@ app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
     ResponseWriter = async (context, report) =>
     {
         context.Response.ContentType = "application/json";
-        
+
         var result = System.Text.Json.JsonSerializer.Serialize(new
         {
             status = report.Status.ToString(),
@@ -245,7 +239,7 @@ app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
         {
             WriteIndented = true
         });
-        
+
         await context.Response.WriteAsync(result);
     }
 });

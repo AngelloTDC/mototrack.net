@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\MotoTrackAPI\\MotoTrackAPI.csproj": {}
+    "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\mototrackapi\\MotoTrackAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\MotoTrackAPI\\MotoTrackAPI.csproj": {
+    "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\mototrackapi\\MotoTrackAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\MotoTrackAPI\\MotoTrackAPI.csproj",
+        "projectUniqueName": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\mototrackapi\\MotoTrackAPI.csproj",
         "projectName": "MotoTrackAPI",
-        "projectPath": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\MotoTrackAPI\\MotoTrackAPI.csproj",
+        "projectPath": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\mototrackapi\\MotoTrackAPI.csproj",
         "packagesPath": "C:\\Users\\angello cod\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\MotoTrackAPI\\obj\\",
+        "outputPath": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\mototrackapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\angello cod\\AppData\\Roaming\\NuGet\\NuGet.Config"
