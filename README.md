@@ -149,12 +149,6 @@ MotoTrackAPI/
 └── Program.cs           # Configuração da aplicação
 ```
 
-## 📝 Licença
+Link para o repositorio no github
 
-MIT License
-
----
-
-**Desenvolvido por**: Angello Turano, Cauã Sanches e Leonardo Bianchi  
-**Instituição**: FIAP - Análise e Desenvolvimento de Sistemas  
-**Ano**: 2025
+https://github.com/AngelloTDC/mototrack.net
