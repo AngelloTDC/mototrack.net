@@ -1,27 +1,4 @@
-# 🔧 GUIA DE CORREÇÕES E INSTRUÇÕES - MotoTrack API
-
-## ✅ CORREÇÕES REALIZADAS
-
-### 1. **Estrutura do Projeto Organizada**
-- Todos os arquivos organizados nas pastas corretas
-- Namespaces corrigidos e padronizados
-- Dependências do .csproj otimizadas
-
-### 2. **Comentários Removidos**
-- Removidos comentários desnecessários que indicavam uso de IA
-- Mantidos apenas comentários técnicos essenciais
-- Código limpo e profissional
-
-### 3. **Informações dos Integrantes Atualizadas**
-Adicionado em todos os locais relevantes:
-- **RM 556511** - Angello Turano da Costa
-- **RM 558576** - Cauã Sanches de Santana
-- **RM 558317** - Leonardo Bianchi
-
-### 4. **Erros de Compilação Corrigidos**
-- Todos os 24 erros foram corrigidos
-- Dependências circulares resolvidas
-- Tipos e namespaces ajustados
+# 🔧 GUIA DE INSTRUÇÕES - MotoTrack API
 
 ## 🚀 COMO EXECUTAR O PROJETO
 
@@ -32,12 +9,14 @@ Extraia o arquivo `MotoTrackAPI-Corrigido.zip` em uma pasta de sua preferência.
 ### Passo 2: Abrir no Visual Studio ou VS Code
 
 **Visual Studio 2022:**
+
 1. Abra o Visual Studio
 2. File → Open → Project/Solution
 3. Selecione `MotoTrackAPI.csproj`
 4. Aguarde o restore dos pacotes NuGet
 
 **VS Code:**
+
 1. Abra o VS Code
 2. File → Open Folder
 3. Selecione a pasta `MotoTrackAPI`
@@ -49,7 +28,13 @@ Extraia o arquivo `MotoTrackAPI-Corrigido.zip` em uma pasta de sua preferência.
 dotnet restore
 ```
 
-### Passo 4: Compilar o Projeto
+### Passo 4: Acessar a API
+
+```bash
+cd MotoTrackAPI
+```
+
+### Passo 5: Compilar o Projeto
 
 ```bash
 dotnet build
@@ -57,7 +42,7 @@ dotnet build
 
 **Resultado esperado:** `Build succeeded. 0 Warning(s) 0 Error(s)`
 
-### Passo 5: Executar a Aplicação
+### Passo 6: Executar a Aplicação
 
 ```bash
 dotnet run
@@ -70,6 +55,7 @@ A API estará disponível em: `http://localhost:5000`
 ### 1. Acessar o Swagger
 
 Abra seu navegador e acesse:
+
 ```
 http://localhost:5000/swagger
 ```
@@ -81,6 +67,7 @@ http://localhost:5000/swagger
 3. Use as credenciais:
 
 **Admin:**
+
 ```json
 {
   "username": "admin",
@@ -89,6 +76,7 @@ http://localhost:5000/swagger
 ```
 
 **Operador:**
+
 ```json
 {
   "username": "operador",
@@ -121,20 +109,25 @@ Deve retornar status 200 com informações sobre a saúde da API.
 ### Testar CRUD de Motos
 
 **Listar Motos:**
+
 ```
 GET /api/v1/motos
 ```
 
 **Buscar Moto por ID:**
+
 ```
 GET /api/v1/motos/1
 ```
 
 **Criar Nova Moto:**
+
 ```
 POST /api/v1/motos
 ```
+
 Body:
+
 ```json
 {
   "placa": "TEST123",
@@ -146,10 +139,13 @@ Body:
 ```
 
 **Atualizar Moto:**
+
 ```
 PUT /api/v1/motos/1
 ```
+
 Body:
+
 ```json
 {
   "status": "Manutenção"
@@ -159,10 +155,13 @@ Body:
 ### Testar Machine Learning
 
 **Predição de Manutenção:**
+
 ```
 POST /api/v1/predicao/prever-manutencao
 ```
+
 Body:
+
 ```json
 {
   "motoId": 1,
@@ -173,6 +172,7 @@ Body:
 ```
 
 **Exemplo Rápido (Não requer autenticação):**
+
 ```
 GET /api/v1/predicao/exemplo
 ```
@@ -180,10 +180,13 @@ GET /api/v1/predicao/exemplo
 ### Testar Localizações
 
 **Registrar Nova Localização:**
+
 ```
 POST /api/v1/localizacoes
 ```
+
 Body:
+
 ```json
 {
   "motoId": 1,
@@ -195,6 +198,7 @@ Body:
 ```
 
 **Buscar Localização Atual:**
+
 ```
 GET /api/v1/localizacoes/moto/1/atual
 ```
@@ -231,6 +235,7 @@ https://dotnet.microsoft.com/download/dotnet/8.0
 ### Erro ao compilar
 
 Execute:
+
 ```bash
 dotnet clean
 dotnet restore
@@ -240,6 +245,7 @@ dotnet build
 ### Porta 5000 já em uso
 
 Edite `Program.cs` e altere a porta ou use:
+
 ```bash
 dotnet run --urls "http://localhost:5001"
 ```
@@ -247,6 +253,7 @@ dotnet run --urls "http://localhost:5001"
 ### Swagger não abre
 
 Certifique-se de acessar:
+
 - `http://localhost:5000/swagger` (não https)
 - Verifique se a aplicação está rodando no console
 
@@ -275,6 +282,7 @@ Certifique-se de acessar:
 ## 📞 SUPORTE
 
 Em caso de dúvidas, verifique:
+
 - README.md na raiz do projeto
 - Documentação do Swagger
 - Logs no console ao executar
