@@ -186,7 +186,7 @@ public class MLServiceTests
         Assert.True(resultado.ProbabilidadeManutencao > 0);
         Assert.NotNull(resultado.Recomendacao);
         Assert.NotEmpty(resultado.Recomendacao);
-        
+
         if (resultado.RequerManutencao)
         {
             Assert.True(
