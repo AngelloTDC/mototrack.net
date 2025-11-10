@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MotoTrackAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d66fc2a466118e277b85b50df982af42cb2c912")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+714a252560f7c7dbc826a1da148c8cb87a502794")]
 [assembly: System.Reflection.AssemblyProductAttribute("MotoTrackAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MotoTrackAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
