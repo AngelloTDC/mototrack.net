@@ -5,11 +5,11 @@ using Xunit;
 
 namespace MotoTrack.Tests.Integration
 {
-    public class ApiMotoIntegrationTests : IClassFixture<WebApplicationFactory<MotoTrackAPI.Program>>
+    public class ApiMotoIntegrationTests : IClassFixture<WebApplicationFactory<Program>>
     {
-        private readonly WebApplicationFactory<MotoTrackAPI.Program> _factory;
+        private readonly WebApplicationFactory<Program> _factory;
 
-        public ApiMotoIntegrationTests(WebApplicationFactory<MotoTrackAPI.Program> factory)
+        public ApiMotoIntegrationTests(WebApplicationFactory<Program> factory)
         {
             _factory = factory;
         }
@@ -17,16 +17,13 @@ namespace MotoTrack.Tests.Integration
         [Fact]
         public async Task Get_Motos_ReturnsOkAndJson()
         {
-            // Arrange
             var client = _factory.CreateClient();
 
-            // Act
             var response = await client.GetAsync("/api/motos");
 
-            // Assert
-            response.EnsureSuccessStatusCode(); // Status Code 200‑299
+            response.EnsureSuccessStatusCode();
             Assert.Equal("application/json; charset=utf-8",
-                         response.Content.Headers.ContentType.ToString());
+                         response.Content.Headers.ContentType?.ToString());
             var content = await response.Content.ReadAsStringAsync();
             Assert.False(string.IsNullOrWhiteSpace(content));
         }
