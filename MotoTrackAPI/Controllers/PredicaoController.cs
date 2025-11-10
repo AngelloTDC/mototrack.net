@@ -32,7 +32,6 @@ public class PredicaoController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> PreverManutencao([FromBody] PredicaoManutencaoRequest request)
     {
-        // Validar se a moto existe
         var moto = await _context.Motos.FindAsync(request.MotoId);
         if (moto == null)
         {
@@ -47,10 +46,8 @@ public class PredicaoController : ControllerBase
 
         try
         {
-            // Fazer predição usando ML.NET
             var predicao = _mlService.PreverManutencao(request);
-            
-            // Preencher dados adicionais da moto
+
             predicao.Placa = moto.Placa;
 
             _logger.LogInformation(
@@ -113,7 +110,7 @@ public class PredicaoController : ControllerBase
     public async Task<IActionResult> AnaliseFrota()
     {
         var motos = await _context.Motos.ToListAsync();
-        
+
         var analise = new
         {
             TotalMotos = motos.Count,

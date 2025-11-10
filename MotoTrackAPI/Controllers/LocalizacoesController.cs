@@ -154,7 +154,7 @@ public class LocalizacoesController : ControllerBase
         _context.Localizacoes.Add(localizacao);
         await _context.SaveChangesAsync();
 
-        _logger.LogInformation("Nova localização registrada para moto {Placa}: Lat {Lat}, Long {Long}", 
+        _logger.LogInformation("Nova localização registrada para moto {Placa}: Lat {Lat}, Long {Long}",
             moto.Placa, request.Latitude, request.Longitude);
 
         var dto = new LocalizacaoDto
@@ -169,7 +169,7 @@ public class LocalizacoesController : ControllerBase
             TipoLeitura = localizacao.TipoLeitura
         };
 
-        return CreatedAtAction(nameof(GetCurrentLocation), new { motoId = localizacao.MotoId }, 
+        return CreatedAtAction(nameof(GetCurrentLocation), new { motoId = localizacao.MotoId },
             new ApiResponse<LocalizacaoDto>
             {
                 Success = true,
@@ -182,7 +182,6 @@ public class LocalizacoesController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<List<LocalizacaoDto>>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetBySetor(string setor)
     {
-        // Pega a localização mais recente de cada moto no setor especificado
         var localizacoes = await _context.Localizacoes
             .Include(l => l.Moto)
             .Where(l => l.SetorDeposito != null && l.SetorDeposito.Contains(setor))
@@ -214,15 +213,14 @@ public class LocalizacoesController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<List<LocalizacaoDto>>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetNearby([FromQuery] decimal latitude, [FromQuery] decimal longitude)
     {
-        // Cálculo simplificado de proximidade (em produção usar fórmula de Haversine)
-        decimal raio = 0.001m; // Aproximadamente 100 metros
+        decimal raio = 0.001m;
 
         var localizacoes = await _context.Localizacoes
             .Include(l => l.Moto)
             .GroupBy(l => l.MotoId)
             .Select(g => g.OrderByDescending(l => l.DataHoraRegistro).FirstOrDefault())
-            .Where(l => l != null && 
-                Math.Abs(l.Latitude - latitude) <= raio && 
+            .Where(l => l != null &&
+                Math.Abs(l.Latitude - latitude) <= raio &&
                 Math.Abs(l.Longitude - longitude) <= raio)
             .Select(l => new LocalizacaoDto
             {

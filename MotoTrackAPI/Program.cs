@@ -94,9 +94,9 @@ builder.Services.AddSwaggerGen(c =>
         Title = "MotoTrack API - Sistema de Rastreamento de Motos IoT",
         Version = "v1.0",
         Description = @"
-# 🏍️ MotoTrack API - Solução IoT para Rastreamento de Motos
+# MotoTrack API - Solução IoT para Rastreamento de Motos
 
-## 📋 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 ✅ **10 pontos** - Health Checks em `/health`  
 ✅ **10 pontos** - Versionamento de API (v1.0)  
@@ -105,7 +105,7 @@ builder.Services.AddSwaggerGen(c =>
 ✅ **30 pontos** - Testes Unitários e de Integração com xUnit  
 ✅ **Boas práticas REST** - CRUD completo, paginação, filtros  
 
-## 🔐 Como Autenticar
+## Como Autenticar
 
 1. Faça login em: `POST /api/v1/auth/login`
    ```json
@@ -117,29 +117,29 @@ builder.Services.AddSwaggerGen(c =>
 
 2. Copie o token retornado
 
-3. Clique em **Authorize** 🔓 (canto superior direito)
+3. Clique em **Authorize** (canto superior direito)
 
 4. Digite: `Bearer {token-vem-aqui}`
 
 5. Clique em **Authorize** novamente
 
-## 🤖 Machine Learning - Predição de Manutenção
+## Machine Learning - Predição de Manutenção
 
 Use o endpoint `/api/v1/predicao/prever-manutencao` para prever se uma moto precisa de manutenção baseado em:
 - Quilometragem
 - Nível de bateria do beacon
 - Dias desde última manutenção
 
-## 📍 Rastreamento em Tempo Real
+## Rastreamento em Tempo Real
 
 A API permite registrar e consultar localizações das motos no depósito usando sensores IoT (GPS, RFID, Bluetooth).
 
-## 👥 Usuários de Teste
+## Usuários de Teste
 
 - **Operador**: `operador` / `operador123`
 - **Admin**: `admin` / `admin123`
 
-## 👨‍💻 Integrantes do Projeto
+##  Integrantes do Projeto
 
 - **RM 556511** - Angello Turano da Costa
 - **RM 558576** - Cauã Sanches de Santana
@@ -157,7 +157,7 @@ A API permite registrar e consultar localizações das motos no depósito usando
 **Como usar:** 
 1. Faça login no endpoint `/api/v1/auth/login`
 2. Copie o token retornado
-3. Clique em 'Authorize' 🔓
+3. Clique em 'Authorize' 
 4. Digite: `Bearer {seu-token}`
 5. Clique em 'Authorize' novamente
 
@@ -309,8 +309,8 @@ Console.WriteLine("╔═══════════════════�
 Console.WriteLine("║        🏍️  MOTOTRACK API - SISTEMA IoT INICIADO                 ║");
 Console.WriteLine("╚══════════════════════════════════════════════════════════════════╝");
 Console.WriteLine();
-Console.WriteLine("📍 Ambiente:                     " + app.Environment.EnvironmentName);
-Console.WriteLine("🌐 URL Base:                     http://localhost:5000");
+Console.WriteLine(" Ambiente:                     " + app.Environment.EnvironmentName);
+Console.WriteLine(" URL Base:                     http://localhost:5000");
 Console.WriteLine();
 Console.WriteLine("✅ Health Checks:                /health");
 Console.WriteLine("✅ Swagger UI:                   /swagger");
@@ -318,23 +318,23 @@ Console.WriteLine("✅ API Versão:                   v1.0");
 Console.WriteLine("✅ Autenticação:                 JWT Bearer");
 Console.WriteLine("✅ Machine Learning:             ML.NET ativo");
 Console.WriteLine();
-Console.WriteLine("🔐 Credenciais de teste:");
+Console.WriteLine(" Credenciais de teste:");
 Console.WriteLine("   Admin:     username=admin     password=admin123");
 Console.WriteLine("   Operador:  username=operador  password=operador123");
 Console.WriteLine();
-Console.WriteLine("👥 Integrantes do Projeto:");
+Console.WriteLine(" Integrantes do Projeto:");
 Console.WriteLine("   • RM 556511 - Angello Turano da Costa");
 Console.WriteLine("   • RM 558576 - Cauã Sanches de Santana");
 Console.WriteLine("   • RM 558317 - Leonardo Bianchi");
 Console.WriteLine();
-Console.WriteLine("📊 Pontuação do Projeto:");
+Console.WriteLine(" Pontuação do Projeto:");
 Console.WriteLine("   ✅ Health Checks:            10 pontos");
 Console.WriteLine("   ✅ Versionamento API:        10 pontos");
 Console.WriteLine("   ✅ Segurança JWT:            25 pontos");
 Console.WriteLine("   ✅ ML.NET:                   25 pontos");
 Console.WriteLine("   ✅ Testes (xUnit):           30 pontos");
-Console.WriteLine("   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-Console.WriteLine("   🎯 TOTAL:                    100 pontos");
+Console.WriteLine("     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+Console.WriteLine("      TOTAL:                    100 pontos");
 Console.WriteLine();
 Console.WriteLine("══════════════════════════════════════════════════════════════════");
 

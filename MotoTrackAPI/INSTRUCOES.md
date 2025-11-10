@@ -1,6 +1,6 @@
-# 🔧 GUIA DE INSTRUÇÕES - MotoTrack API
+# GUIA DE INSTRUÇÕES - MotoTrack API
 
-## 🚀 COMO EXECUTAR O PROJETO
+## COMO EXECUTAR O PROJETO
 
 ### Passo 1: Extrair o Arquivo
 
@@ -50,7 +50,7 @@ dotnet run
 
 A API estará disponível em: `http://localhost:5000`
 
-## 📖 USANDO O SWAGGER
+## USANDO O SWAGGER
 
 ### 1. Acessar o Swagger
 
@@ -89,14 +89,14 @@ http://localhost:5000/swagger
 
 ### 3. Autorizar no Swagger
 
-1. Clique no botão **Authorize** 🔓 (canto superior direito)
+1. Clique no botão **Authorize** (canto superior direito)
 2. Digite: `Bearer {cole-o-token-aqui}`
 3. Clique em **Authorize**
 4. Clique em **Close**
 
 Agora você está autenticado e pode testar todos os endpoints!
 
-## 🧪 TESTANDO OS ENDPOINTS
+## TESTANDO OS ENDPOINTS
 
 ### Testar Health Check (Não requer autenticação)
 
@@ -203,7 +203,7 @@ Body:
 GET /api/v1/localizacoes/moto/1/atual
 ```
 
-## 📊 ENDPOINTS PARA DEMONSTRAÇÃO
+## ENDPOINTS PARA DEMONSTRAÇÃO
 
 ### Endpoints Mais Importantes para Apresentação
 
@@ -213,24 +213,6 @@ GET /api/v1/localizacoes/moto/1/atual
 4. **GET /api/v1/motos** - Versionamento v1.0 (10 pontos)
 5. **POST /api/v1/predicao/prever-manutencao** - ML.NET (25 pontos)
 6. **GET /api/v1/predicao/metricas-modelo** - Métricas do ML
-
-## 🎯 CHECKLIST PARA A NOTA COMPLETA
-
-- [x] **10 pontos** - Health Checks implementado em `/health`
-- [x] **10 pontos** - Versionamento de API (v1.0) visível em todas as rotas
-- [x] **25 pontos** - Autenticação JWT Bearer funcionando
-- [x] **25 pontos** - ML.NET com predição de manutenção funcionando
-- [x] **30 pontos** - Testes unitários e de integração (ver pasta Tests se incluída)
-- [x] **Swagger** - Documentação completa e funcional
-- [x] **CRUD** - Completo para Motos e Localizações
-- [x] **Integrantes** - Informados em todos os lugares relevantes
-
-## 🐛 SOLUÇÃO DE PROBLEMAS
-
-### Erro: "dotnet command not found"
-
-Instale o .NET 8 SDK:
-https://dotnet.microsoft.com/download/dotnet/8.0
 
 ### Erro ao compilar
 
@@ -257,7 +239,7 @@ Certifique-se de acessar:
 - `http://localhost:5000/swagger` (não https)
 - Verifique se a aplicação está rodando no console
 
-## 📝 OBSERVAÇÕES IMPORTANTES
+## OBSERVAÇÕES IMPORTANTES
 
 1. **Banco de Dados**: O projeto usa InMemory Database. Os dados são zerados a cada reinicialização.
 
@@ -269,7 +251,7 @@ Certifique-se de acessar:
 
 5. **Logs**: Acompanhe os logs no console para ver as operações sendo executadas.
 
-## 🎓 PONTOS PARA DESTACAR NA APRESENTAÇÃO
+## PONTOS PARA DESTACAR
 
 1. **Arquitetura Limpa**: Controllers, Services, DTOs separados
 2. **Segurança**: JWT com roles (Admin e Operador)
@@ -278,13 +260,3 @@ Certifique-se de acessar:
 5. **Documentação**: Swagger completo com exemplos
 6. **Health Checks**: Monitoramento da saúde da API
 7. **Versionamento**: API v1.0 preparada para evolução
-
-## 📞 SUPORTE
-
-Em caso de dúvidas, verifique:
-
-- README.md na raiz do projeto
-- Documentação do Swagger
-- Logs no console ao executar
-
-**Boa sorte na apresentação! 🚀**

@@ -1,27 +1,27 @@
-# 🏍️ MotoTrack API - Sistema de Rastreamento de Motos IoT
+# MotoTrack API - Sistema de Rastreamento de Motos IoT
 
-## 👥 Integrantes do Projeto
+## Integrantes do Projeto
 
 - **RM 556511** - Angello Turano da Costa
-- **RM 558576** - Cauã Sanches de Santana  
+- **RM 558576** - Cauã Sanches de Santana
 - **RM 558317** - Leonardo Bianchi
 
-## 📋 Descrição do Projeto
+## Descrição do Projeto
 
 Sistema de rastreamento de motos em depósitos utilizando tecnologia IoT (Bluetooth Beacons, RFID, GPS) com API RESTful desenvolvida em .NET 8, Machine Learning para predição de manutenção e autenticação JWT.
 
-## 🎯 Pontuação do Projeto
+## Pontuação do Projeto
 
-| Requisito | Pontos | Status |
-|-----------|--------|--------|
-| Health Checks | 10 | ✅ Implementado |
-| Versionamento de API | 10 | ✅ Implementado (v1.0) |
-| Segurança JWT | 25 | ✅ Implementado |
-| ML.NET - Predição de Manutenção | 25 | ✅ Implementado |
-| Testes Unitários e Integração | 30 | ✅ Implementado |
-| **TOTAL** | **100** | **✅ Completo** |
+| Requisito                       | Pontos  | Status                 |
+| ------------------------------- | ------- | ---------------------- |
+| Health Checks                   | 10      | ✅ Implementado        |
+| Versionamento de API            | 10      | ✅ Implementado (v1.0) |
+| Segurança JWT                   | 25      | ✅ Implementado        |
+| ML.NET - Predição de Manutenção | 25      | ✅ Implementado        |
+| Testes Unitários e Integração   | 30      | ✅ Implementado        |
+| **TOTAL**                       | **100** | **✅ Completo**        |
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 
@@ -37,11 +37,11 @@ dotnet run
 
 A API estará disponível em: `http://localhost:5000`
 
-## 📖 Documentação da API
+## Documentação da API
 
 Acesse o Swagger em: `http://localhost:5000/swagger`
 
-## 🔐 Autenticação
+## Autenticação
 
 ### Usuários de Teste
 
@@ -52,17 +52,19 @@ Acesse o Swagger em: `http://localhost:5000/swagger`
 
 1. Faça login em `POST /api/v1/auth/login`
 2. Copie o token retornado
-3. Clique em **Authorize** 🔓 (canto superior direito)
+3. Clique em **Authorize** (canto superior direito)
 4. Digite: `Bearer {seu-token}`
 5. Clique em **Authorize** novamente
 
 ## 🛠️ Endpoints Principais
 
 ### Autenticação
+
 - `POST /api/v1/auth/login` - Fazer login
 - `GET /api/v1/auth/me` - Obter dados do usuário autenticado
 
 ### Motos
+
 - `GET /api/v1/motos` - Listar motos (com paginação)
 - `GET /api/v1/motos/{id}` - Buscar moto por ID
 - `POST /api/v1/motos` - Criar nova moto
@@ -71,6 +73,7 @@ Acesse o Swagger em: `http://localhost:5000/swagger`
 - `GET /api/v1/motos/status/{status}` - Buscar motos por status
 
 ### Localizações
+
 - `GET /api/v1/localizacoes` - Listar localizações
 - `GET /api/v1/localizacoes/moto/{motoId}/atual` - Localização atual de uma moto
 - `GET /api/v1/localizacoes/moto/{motoId}/historico` - Histórico de localizações
@@ -79,6 +82,7 @@ Acesse o Swagger em: `http://localhost:5000/swagger`
 - `GET /api/v1/localizacoes/proximidade` - Buscar motos próximas
 
 ### Predição de Manutenção (ML.NET)
+
 - `POST /api/v1/predicao/prever-manutencao` - Prever se moto precisa manutenção
 - `POST /api/v1/predicao/prever-manutencao-lote` - Prever manutenção em lote
 - `GET /api/v1/predicao/analise-frota` - Análise geral da frota
@@ -86,9 +90,10 @@ Acesse o Swagger em: `http://localhost:5000/swagger`
 - `GET /api/v1/predicao/exemplo` - Exemplo de predição
 
 ### Health Check
+
 - `GET /health` - Status da API e banco de dados
 
-## 🤖 Machine Learning - Predição de Manutenção
+## Machine Learning - Predição de Manutenção
 
 O sistema utiliza ML.NET com algoritmo FastTree (Boosted Decision Tree) para prever se uma moto precisa de manutenção.
 
@@ -121,7 +126,7 @@ O sistema utiliza ML.NET com algoritmo FastTree (Boosted Decision Tree) para pre
     "requerManutencao": true,
     "probabilidadeManutencao": 0.85,
     "diasEstimados": 7,
-    "recomendacao": "🟡 ATENÇÃO: Agendar manutenção em até 7 dias."
+    "recomendacao": "ATENÇÃO: Agendar manutenção em até 7 dias."
   }
 }
 ```
@@ -137,7 +142,7 @@ O sistema utiliza ML.NET com algoritmo FastTree (Boosted Decision Tree) para pre
 - xUnit (Testes)
 - Asp.Versioning
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ```
 MotoTrackAPI/

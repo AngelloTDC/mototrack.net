@@ -16,7 +16,7 @@ public class MLService
 
         if (File.Exists(_modelPath))
         {
-            Console.WriteLine("📦 Carregando modelo existente...");
+            Console.WriteLine("Carregando modelo existente...");
             using var fileStream = new FileStream(_modelPath, FileMode.Open, FileAccess.Read, FileShare.Read);
             _model = _mlContext.Model.Load(fileStream, out _);
             Console.WriteLine("✅ Modelo carregado com sucesso!");
@@ -29,7 +29,7 @@ public class MLService
 
     private void TreinarModelo()
     {
-        Console.WriteLine("⚙️ Iniciando treinamento do modelo ML.NET...");
+        Console.WriteLine("Iniciando treinamento do modelo ML.NET...");
 
         var dadosTreinamento = new List<DadosManutencao>
         {
@@ -108,10 +108,10 @@ public class MLService
         if (requerManutencao)
         {
             if (diasEstimados == 0)
-                return "🔴 URGENTE: Manutenção imediata necessária!";
+                return "URGENTE: Manutenção imediata necessária!";
             if (diasEstimados <= 7)
-                return $"🟡 ATENÇÃO: Agendar manutenção em até {diasEstimados} dias.";
-            return $"🟢 Manutenção recomendada em {diasEstimados} dias.";
+                return $"ATENÇÃO: Agendar manutenção em até {diasEstimados} dias.";
+            return $"Manutenção recomendada em {diasEstimados} dias.";
         }
 
         return $"✅ Moto em boas condições. Próxima revisão em aproximadamente {diasEstimados} dias.";
@@ -121,7 +121,7 @@ public class MLService
     {
         if (_model == null)
         {
-            Console.WriteLine("⚠️ Modelo não foi treinado.");
+            Console.WriteLine("Modelo não foi treinado.");
             return;
         }
 
@@ -135,9 +135,9 @@ public class MLService
         var predictions = _model.Transform(testDataView);
         var metrics = _mlContext.BinaryClassification.Evaluate(predictions, labelColumnName: "Label");
 
-        Console.WriteLine($"📊 Acurácia: {metrics.Accuracy:P2}");
-        Console.WriteLine($"📈 AUC: {metrics.AreaUnderRocCurve:F3}");
-        Console.WriteLine($"📉 F1 Score: {metrics.F1Score:F3}");
+        Console.WriteLine($"Acurácia: {metrics.Accuracy:P2}");
+        Console.WriteLine($"AUC: {metrics.AreaUnderRocCurve:F3}");
+        Console.WriteLine($"F1 Score: {metrics.F1Score:F3}");
     }
 }
 
