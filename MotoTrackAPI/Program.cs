@@ -139,6 +139,16 @@ A API permite registrar e consultar localizações das motos no depósito usando
 - **Operador**: `operador` / `operador123`
 - **Admin**: `admin` / `admin123`
 
+## Moto de Teste Manutenção
+```json
+{
+  ""motoId"": 1,
+  ""quilometragem"": 50000,
+  ""nivelBateria"": 90,
+  ""diasDesdeUltimaManutencao"": 180
+}
+```
+
 ##  Integrantes do Projeto
 
 - **RM 556511** - Angello Turano da Costa
@@ -326,15 +336,6 @@ Console.WriteLine(" Integrantes do Projeto:");
 Console.WriteLine("   • RM 556511 - Angello Turano da Costa");
 Console.WriteLine("   • RM 558576 - Cauã Sanches de Santana");
 Console.WriteLine("   • RM 558317 - Leonardo Bianchi");
-Console.WriteLine();
-Console.WriteLine(" Pontuação do Projeto:");
-Console.WriteLine("   ✅ Health Checks:            10 pontos");
-Console.WriteLine("   ✅ Versionamento API:        10 pontos");
-Console.WriteLine("   ✅ Segurança JWT:            25 pontos");
-Console.WriteLine("   ✅ ML.NET:                   25 pontos");
-Console.WriteLine("   ✅ Testes (xUnit):           30 pontos");
-Console.WriteLine("     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-Console.WriteLine("      TOTAL:                    100 pontos");
 Console.WriteLine();
 Console.WriteLine("══════════════════════════════════════════════════════════════════");
 

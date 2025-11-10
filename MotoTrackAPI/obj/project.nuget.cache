@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+rr6KbKMtvU=",
+  "dgSpecHash": "GiKOa1Oa23o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\MotoTrackAPI\\MotoTrackAPI.csproj",
+  "projectFilePath": "C:\\Users\\angello cod\\OneDrive\\Desktop\\subir_vercel\\mototrack.net\\mototrackapi\\MotoTrackAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angello cod\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
     "C:\\Users\\angello cod\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
